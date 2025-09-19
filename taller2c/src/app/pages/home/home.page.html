@@ -1,0 +1,40 @@
+<ion-content class="home-bg">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <!-- Header -->
+        <h1 class="home-title">{{ t('HOME.TITLE') || 'Mis Wallpapers' }}</h1>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="12">
+        <!-- Wallpapers-->
+        <div class="wallpaper-grid">
+          <p style="text-align:center; color:#666;">{{ t('HOME.EMPTY') || 'No hay wallpapers aún' }}</p>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- Botón flotante principal -->
+  <div class="fab-container">
+    <button class="fab-main" (click)="toggleMenu()">+</button>
+
+    <!-- Botones secundarios -->
+    <div class="fab-menu" [class.open]="menuOpen">
+      <!-- Redirige a update-user-info -->
+      <button class="fab-btn" routerLink="/update-user-info" title="{{ t('HOME.UPDATE') || 'Actualizar Datos' }}">
+        <ion-icon name="person-circle-outline"></ion-icon>
+      </button>
+
+      <button class="fab-btn" (click)="addWallpaper()" title="{{ t('HOME.ADD') || 'Agregar Wallpaper' }}">
+        <ion-icon name="images-outline"></ion-icon>
+      </button>
+
+      <button class="fab-btn" (click)="logout()" title="{{ t('HOME.LOGOUT') || 'Cerrar Sesión' }}">
+        <ion-icon name="log-out-outline"></ion-icon>
+      </button>
+    </div>
+  </div>
+</ion-content>
